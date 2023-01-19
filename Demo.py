@@ -105,7 +105,7 @@ def chat(
     size="ada",
     debug=False,
     max_tokens=400,
-    stop_sequence=["User: ", "AI: "],
+    stop_sequence=["User:"],
 ):
     """
     Answer a question based on the most similar context from the dataframe texts
