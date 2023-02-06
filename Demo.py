@@ -39,7 +39,7 @@ def load_index():
         api_key=st.secrets["PINECONE_KEY"],  # app.pinecone.io
         environment='us-west1-gcp'
     )
-    index_name = 'point3-semantic-search'
+    index_name = 'point3'
     if not index_name in pinecone.list_indexes():
         raise KeyError(f"Index '{index_name}' does not exist.")
 
