@@ -49,11 +49,11 @@ def load_index():
 
 @st.experimental_singleton(show_spinner=False)
 def init_key_value():
-    with open('p3-mapping.json', 'r') as fp:
+    with open('point3-mapping.json', 'r') as fp:
         mappings = json.load(fp) 
     return mappings
 
-with open('p3-mapping.json', 'r') as fp:
+with open('point3-mapping.json', 'r') as fp:
         mappings = json.load(fp) 
 
 openai.api_key = st.secrets["OPENAI_KEY"]
