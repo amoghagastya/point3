@@ -58,15 +58,15 @@ with open('p3-mapping.json', 'r') as fp:
 
 openai.api_key = st.secrets["OPENAI_KEY"]
     
-def get_embedding(text, engine="text-embedding-ada-002"):
+def get_embedding(text, engine="text-embedding-curie-001"):
    text = text.replace("\n", " ")
    return openai.Embedding.create(input = [text], model=engine)['data'][0]['embedding']
 
-def create_context(question, index, mappings, max_len=3750, size="ada"):
+def create_context(question, index, mappings, max_len=3750, size="curie"):
     """
     Find most relevant context for a question via Pinecone search
     """
-    q_embed = get_embedding(question, engine=f'text-embedding-{size}-002')
+    q_embed = get_embedding(question, engine=f'text-embedding-{size}-001')
     res = index.query(q_embed, top_k=3, include_metadata=True)
     
     cur_len = 0
