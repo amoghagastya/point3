@@ -22,7 +22,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 st.subheader("Chat with your Molton Brown Assistant!")
 
-
 if 'bot' not in st.session_state:
     st.session_state['bot'] = ["Greetings! I'm your Molton Brown assistant. How may I help you today?"]
 
@@ -49,11 +48,11 @@ def load_index():
 
 @st.experimental_singleton(show_spinner=False)
 def init_key_value():
-    with open('point3-mapping.json', 'r') as fp:
+    with open('point3-mapping-master.json', 'r') as fp:
         mappings = json.load(fp) 
     return mappings
 
-with open('point3-mapping.json', 'r') as fp:
+with open('point3-mapping-master.json', 'r') as fp:
         mappings = json.load(fp) 
 
 openai.api_key = st.secrets["OPENAI_KEY"]
